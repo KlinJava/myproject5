@@ -3,8 +3,25 @@ package com.hank;
 public class Hello {
     public static void main(String[] args) {
 //        System.out.println("Hello!");
-        Person p = new Person();
+        String s = "abcde";
+//        String s = null;
+        System.out.println(s.charAt(3));
+        System.out.println(s.length());
+        System.out.println(s.substring(3));
+        System.out.println(s.substring(1,4));
+        Person p = new Person("Tom",66.5f,1.7f);
         p.hello();
+        System.out.println("bmi = " + p.bmi());
+        int score = 88;
+        System.out.println(score < 80 || score > 90);
+        char c = 'A';
+        System.out.println(c > 'a');
+
+//        dataVariable();
+
+    }
+
+    private static void dataVariable() {
         int age = 19; //32bits
         Integer age2 = 19;
         age2.byteValue();
@@ -17,10 +34,5 @@ public class Hello {
         boolean adult = true;
         boolean enroll = false;
         String name = "Tom";
-
-
-
-
-
     }
 }
