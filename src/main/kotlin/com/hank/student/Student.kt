@@ -4,7 +4,7 @@ import java.util.Scanner
 
 fun main() {
 //    userInput()
-    val stu = Student("Hank",77,99)
+    val stu = Student("Hank",60,99)
     stu.print()
     println("Highest score: ${stu.highest()}")
     println("Highest2 score: ${stu.highest2()}")
@@ -15,16 +15,24 @@ fun main() {
 
 class Student(var name:String?, var english:Int, var math:Int) {
     fun print(){
-        println(name + "\t" + english + "\t" + math +
-                "\t" + getAverage() + "\t" +
-                if(getAverage() >=60) "PASS" else "FAILED")
+        /*print(name + "\t" + english + "\t" + math +
+                "\t" + getAverage() + "\t" + passOrFailed()
+                )
+        println("\t" + grading())*/
+        println("$name\t$english\t$math\t${getAverage()}\t${passOrFailed()}\t${grading()}")
     }
-    fun getAverage():Int{
-        return (english+math)/2
+    fun grading():Char = when(getAverage()) {
+            in 90..100 -> 'A'
+            86,87,88,89 -> 'B'
+            in 80..85 -> 'B'
+            in 70..79 -> 'C'
+            in 60..69 -> 'D'
+            else -> 'F'
     }
-    fun nameCheck(){
-        println(name?.length)
-    }
+    fun passOrFailed():String = if(getAverage() >=60) "PASS" else "FAILED"
+    fun getAverage():Int = (english+math)/2
+    fun nameCheck() = println(name?.length)
+
     fun highest():Int{
         var max = 0
         if (english > math) {
