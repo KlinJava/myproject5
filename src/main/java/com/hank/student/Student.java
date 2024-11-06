@@ -5,6 +5,10 @@ public class Student {
     String name;
     int english;
     int math;
+    static int pass = 60;
+    public static void test(){
+        System.out.println("java static test");
+    }
 
     public Student(String name, int english, int math) {
         this.name = name;
@@ -16,7 +20,7 @@ public class Student {
         int average = getAverage();
         System.out.print(name + "\t" + english + "\t" + math + "\t" +
                getAverage() + "\t" +
-                ((average>=60)? "PASS" : "FAILED") + "\t");
+                ((average >= pass)? "PASS" : "FAILED") + "\t");
         getGrading(average);
         getGrading2(average);
         getGrading3(average);
@@ -27,7 +31,7 @@ public class Student {
         }*/
     }
 
-    private static void getGrading(int average) {
+    public static void getGrading(int average) {
         char grading = 'F';
         if (average >= 90 && average <= 100) {
             grading = 'A';

@@ -4,17 +4,47 @@ import java.util.Scanner
 
 fun main() {
 //    userInput()
+    Student.pass = 50
     val stu = Student("Hank",60,99)
+    val stu2 = Student("Jane",44,68)
+    val stu3 = Student("Eric",30,49)
+    val gstu = GraduateStudent("Jack",55,65,60)
+    gstu.print()
     stu.print()
+    stu2.print()
+    stu3.print()
     println("Highest score: ${stu.highest()}")
-    println("Highest2 score: ${stu.highest2()}")
-    println("Highest3 score: ${stu.highest3()}")
-    println("Highest4 score: ${stu.highest4()}")
-    println("Highest5 score: ${stu.highest5()}")
+//    println("Highest2 score: ${stu.highest2()}")
+//    println("Highest3 score: ${stu.highest3()}")
+//    println("Highest4 score: ${stu.highest4()}")
+//    println("Highest5 score: ${stu.highest5()}")
 }
 
-class Student(var name:String?, var english:Int, var math:Int) {
-    fun print(){
+class GraduateStudent(name: String?, english: Int, math: Int, var thesis:Int):Student(name,english,math) {
+    companion object{
+        @JvmStatic
+        var pass = 70
+    }
+
+    override fun passOrFailed(): String = if(getAverage() >= pass) "PASS" else "FAILED"
+    override fun print() {
+        println("$name\t$english\t$math\t$thesis\t${getAverage()}\t${passOrFailed()}\t${grading()}")
+    }
+
+}
+
+open class Student(var name:String?, var english:Int, var math:Int) {
+    //java的 static概念
+
+    companion object {
+        @JvmStatic //使用 java的 static方式去產生
+        var pass:Int = 60
+        fun test(){
+            println("kotlin static test.")
+        }
+    }
+
+    open fun print(){
         /*print(name + "\t" + english + "\t" + math +
                 "\t" + getAverage() + "\t" + passOrFailed()
                 )
@@ -29,7 +59,7 @@ class Student(var name:String?, var english:Int, var math:Int) {
             in 60..69 -> 'D'
             else -> 'F'
     }
-    fun passOrFailed():String = if(getAverage() >=60) "PASS" else "FAILED"
+    open fun passOrFailed():String = if(getAverage() >= pass) "PASS" else "FAILED"
     fun getAverage():Int = (english+math)/2
     fun nameCheck() = println(name?.length)
 
