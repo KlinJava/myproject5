@@ -6,6 +6,7 @@ public class GraduateStudent extends Student{
     public GraduateStudent(String name, int english, int math, int thesis){
         super(name,english,math);
         this.thesis = thesis;
+        highest();
     }
 
     @Override //覆寫

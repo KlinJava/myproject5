@@ -1,6 +1,10 @@
 package com.hank
 
+import com.hank.kolin.Student
+
 fun main() {
+    val stu = Student("abc",1,2)
+    stu.grading()
 //    println("Hello Kotlin!")
 //    var s = "abcde"
     var s:String? = "abcde"

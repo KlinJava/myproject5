@@ -30,3 +30,7 @@ compileTestKotlin {
         jvmTarget = "17"
     }
 }
+
+compileJava {
+    options.encoding = 'UTF-8'
+}

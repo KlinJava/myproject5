@@ -13,6 +13,7 @@ fun main() {
     stu.print()
     stu2.print()
     stu3.print()
+    stu.grading()
     println("Highest score: ${stu.highest()}")
 //    println("Highest2 score: ${stu.highest2()}")
 //    println("Highest3 score: ${stu.highest3()}")
@@ -29,6 +30,7 @@ class GraduateStudent(name: String?, english: Int, math: Int, var thesis:Int):St
     override fun passOrFailed(): String = if(getAverage() >= pass) "PASS" else "FAILED"
     override fun print() {
         println("$name\t$english\t$math\t$thesis\t${getAverage()}\t${passOrFailed()}\t${grading()}")
+        grading()
     }
 
 }

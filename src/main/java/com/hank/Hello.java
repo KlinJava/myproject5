@@ -1,7 +1,13 @@
 package com.hank;
 
+
+import com.hank.kolin.Student;
+
 public class Hello {
     public static void main(String[] args) {
+        Student stu = new Student("ja",66,90);
+        stu.highest();
+        stu.grading();
 //        System.out.println("Hello!");
         String s = "abcde";
 //        String s = null;
